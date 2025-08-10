@@ -1,0 +1,18 @@
+# This file was automatically generated.
+
+[target.riscv32imc-unknown-none-elf]
+runner = "espflash flash --monitor"
+rustflags = ['--cfg', 'getrandom_backend="custom"']
+
+[env]
+ESP_LOG="INFO"
+
+[build]
+rustflags = [
+"-C", "force-frame-pointers",
+]
+
+target = "riscv32imc-unknown-none-elf"
+
+[unstable]
+build-std = ["core"]

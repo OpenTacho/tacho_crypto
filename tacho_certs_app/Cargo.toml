@@ -1,0 +1,36 @@
+[package]
+name = "tacho_certs_app"
+version = "0.1.0"
+edition = "2024"
+
+[lib]
+# cdylib is required for Android, lib is required for desktop
+crate-type = ["cdylib", "lib"]
+
+[[bin]]
+name = "tacho_certs_app_bin"
+
+[dependencies]
+eframe = { workspace = true, default-features = false, features = [
+    "default", # TODO only added for non-android
+    "default_fonts",
+    "glow",
+    "android-native-activity",
+] }
+egui_demo_lib = { workspace = true, features = ["chrono"] }
+
+# For image support:
+#egui_extras = { workspace = true, features = ["default", "image"] }
+
+log = { workspace = true }
+winit = { workspace = true }
+tacho_certs_ui = { workspace = true }
+android_logger = "0.14"
+
+
+[package.metadata.android]
+build_targets = ["armv7-linux-androideabi", "aarch64-linux-android"]
+
+[package.metadata.android.sdk]
+min_sdk_version = 23
+target_sdk_version = 35

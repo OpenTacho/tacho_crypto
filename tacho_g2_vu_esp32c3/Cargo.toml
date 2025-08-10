@@ -1,0 +1,39 @@
+# This file was automatically generated.
+
+[package]
+edition = "2021"
+name = "tacho_g2_vu_esp32c3"
+version = "0.1.0"
+
+[dependencies]
+embassy-executor = { version = "0.7.0", features = ["executor-thread"] }
+embassy-futures = "0.1.1"
+embassy-sync = "0.7.0"
+embassy-time = "0.4.0"
+embassy-time-driver = "0.2.0"
+esp-backtrace = { version = "0.15.1", features = ["esp32c3", "exception-handler", "panic-handler", "println"] }
+esp-hal = { version = "0.23", features = ["esp32c3"] }
+esp-hal-embassy = { version = "0.6", features = ["esp32c3"] }
+esp-println = { version = "0.13.1", features = ["esp32c3", "log"] }
+log.workspace = true
+static_cell = "2.1.0"
+embedded-alloc = "0.6.0"
+
+tacho_g2_crypto = { workspace = true }
+
+[[bin]]
+name = "tacho_g2_vu_esp32c3"
+test = false
+bench = false
+
+[profile.dev]
+debug = true
+lto = true
+opt-level = "z"
+incremental = true
+
+[profile.release]
+debug = false
+lto = true
+opt-level = "z"
+incremental = true

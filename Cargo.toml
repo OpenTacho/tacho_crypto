@@ -1,0 +1,88 @@
+
+[workspace]
+resolver = "3"
+members = [
+    "tacho_g2_crypto",
+    "tacho_cert_common",
+    "tacho_g2_msca_downloader",
+    "tacho_g2_ca_verifier",
+    "tacho_g2_country_lister",
+    "tacho_certs_app",
+    "tacho_certs_ui", "tacho_g2_vu_esp32c3", "tacho_msca_server",
+]
+
+[workspace.dependencies]
+tacho_cert_common = { path = "./tacho_cert_common" }
+tacho_g2_crypto = { path = "./tacho_g2_crypto" }
+tacho_certs_ui = { path = "./tacho_certs_ui" }
+
+serde = { version = "*", features = ["derive"] }
+eyre = "*"
+hex = "*"
+hex-literal = "*"
+strum = { version = "0.26", features = ["derive"] }
+strum_macros = "0.27.1"
+enum-kinds = "0.5"
+heapless = "0.8"
+rand_core = "*"
+chrono = "0.4"
+iso9796_rsa = "0.1.1"
+
+
+eframe = { version = "*", default-features = false }
+egui = "*"
+log = "*"
+winit = "*"
+egui_demo_lib = "*"
+
+
+cbc = { version = "0.2.0-rc.0" }
+ecdsa = { version = "0.17.0-rc.5" }
+der = { version = "0.8.0-rc.8", features = ["derive", "oid", "alloc"] }
+der_derive = { version = "0.8.0-rc.4" }
+const-oid = { version = "0.10.0-rc.2", features = ["db"] }
+elliptic-curve = { version = "0.14.0-rc.9" }
+sha2 = { version = "0.11.0-rc.0" }
+cmac = { version = "0.8.0-rc.0" }
+aes = { version = "0.9.0-rc.0" }
+cipher = { version = "0.5.0-rc.0" }
+base64ct = { version = "1.8.0", default-features = false }
+
+p256 = { version = "0.14.0-pre.9", features = ["ecdsa", "ecdh"] }
+p384 = { version = "0.14.0-pre.9", features = ["ecdsa", "ecdh"] }
+p521 = { version = "0.14.0-pre.9", features = ["ecdsa", "ecdh"] }
+
+bp256 = { version = "0.7.0-pre", features = ["ecdsa", "arithmetic", "sha256"] }
+bp384 = { version = "0.7.0-pre", features = ["ecdsa", "arithmetic", "sha384"] }
+
+
+[patch.crates-io]
+# Patch crates-io with newest RustCrypto ecosystem
+const-oid = { git = "https://github.com/RustCrypto/formats.git", rev = "809b1a2768532d8e62d1d06518c1d47108f1aa92" }
+der = { git = "https://github.com/RustCrypto/formats.git", rev = "809b1a2768532d8e62d1d06518c1d47108f1aa92" }
+der_derive = { git = "https://github.com/RustCrypto/formats.git", rev = "809b1a2768532d8e62d1d06518c1d47108f1aa92" }
+base64ct = { git = "https://github.com/RustCrypto/formats.git", rev = "809b1a2768532d8e62d1d06518c1d47108f1aa92" }
+
+p256 = { git = "https://github.com/RustCrypto/elliptic-curves.git", rev = "4e9e34a7f02d636bb06fd9e652e619f04c76d5ae" }
+p384 = { git = "https://github.com/RustCrypto/elliptic-curves.git", rev = "4e9e34a7f02d636bb06fd9e652e619f04c76d5ae" }
+p521 = { git = "https://github.com/RustCrypto/elliptic-curves.git", rev = "4e9e34a7f02d636bb06fd9e652e619f04c76d5ae" }
+
+bp256 = { git = "https://github.com/RustCrypto/elliptic-curves.git", rev = "4e9e34a7f02d636bb06fd9e652e619f04c76d5ae" }
+bp384 = { git = "https://github.com/RustCrypto/elliptic-curves.git", rev = "4e9e34a7f02d636bb06fd9e652e619f04c76d5ae" }
+
+primeorder = { git = "https://github.com/RustCrypto/elliptic-curves.git", rev = "4e9e34a7f02d636bb06fd9e652e619f04c76d5ae" }
+primefield = { git = "https://github.com/RustCrypto/elliptic-curves.git", rev = "4e9e34a7f02d636bb06fd9e652e619f04c76d5ae" }
+
+
+ecdsa = { git = "https://github.com/RustCrypto/signatures.git", rev = "41edbafeca0ecaf8076232e4b87a5564540bd2e3" }
+
+
+elliptic-curve = { git = "https://github.com/RustCrypto/traits.git", rev = "f531ed3162b3d368bcca90446b61c4664f48aa5a" }
+
+
+[profile.release]
+strip = true      # Automatically strip symbols from the binary.
+lto = true
+codegen-units = 1
+panic = "abort"
+opt-level = "z"   # Optimize for size.

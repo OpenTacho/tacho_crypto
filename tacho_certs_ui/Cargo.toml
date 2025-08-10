@@ -1,0 +1,17 @@
+[package]
+name = "tacho_certs_ui"
+version = "0.1.0"
+edition = "2024"
+
+
+[lib]
+crate-type = ["lib"]
+
+[dependencies]
+egui = { workspace = true }
+der = { workspace = true }
+tacho_g2_crypto = { workspace = true }
+tacho_cert_common = { workspace = true }
+eyre = { workspace = true }
+enum-kinds = { workspace = true }
+strum = { workspace = true }

@@ -1,0 +1,43 @@
+[package]
+name = "tacho_g2_crypto"
+version = "0.1.0"
+edition = "2024"
+
+[lib]
+
+[features]
+default = []
+
+
+
+[dependencies]
+tacho_cert_common = { workspace = true }
+eyre = { workspace = true }
+hex = { workspace = true }
+hex-literal.workspace = true
+heapless = { workspace = true }
+strum = { workspace = true }
+strum_macros = { workspace = true }
+enum-kinds = { workspace = true }
+rand_core = { workspace = true }
+serde = { workspace = true }
+
+
+der = { workspace = true }
+der_derive = { workspace = true }
+const-oid = { workspace = true }
+elliptic-curve = { workspace = true }
+cbc = { workspace = true }
+cmac = { workspace = true }
+ecdsa = { workspace = true }
+aes = { workspace = true }
+cipher = { workspace = true }
+
+sha2 = { workspace = true }
+
+p256 = { workspace = true }
+p384 = { workspace = true }
+p521 = { workspace = true }
+
+bp256 = { workspace = true }
+bp384 = { workspace = true }

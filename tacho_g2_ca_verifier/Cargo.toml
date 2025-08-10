@@ -1,0 +1,18 @@
+[package]
+name = "tacho_g2_ca_verifier"
+version = "0.1.0"
+edition = "2024"
+
+
+[dependencies]
+eyre = { workspace = true }
+tacho_g2_crypto = { workspace = true }
+chrono = { workspace = true }
+der = { workspace = true }
+getrandom = { version = "0.3", features = [] }
+getrandom_old = { package = "getrandom", version = "0.2", features = [] }
+
+
+[features]
+js = ["getrandom/wasm_js", "getrandom_old/js"]
+

@@ -1,0 +1,12 @@
+[package]
+name = "tacho_msca_server"
+version = "0.1.0"
+edition = "2024"
+
+
+[dependencies]
+axum = "*"
+serde = { version = "*", features = ["derive"] }
+tokio = { version = "*", features = ["rt-multi-thread"] }
+tracing-subscriber = "*"
+tacho_g2_crypto = { workspace = true }

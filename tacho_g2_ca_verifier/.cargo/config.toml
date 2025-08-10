@@ -1,0 +1,9 @@
+[target.wasm32-unknown-unknown]
+rustflags = ['--cfg', 'getrandom_backend="wasm_js"']
+
+
+[target.arm-unknown-linux-musleabihf]
+linker = "arm-none-eabi-gcc"
+
+[target.arm-unknown-linux-gnueabihf]
+linker = "arm-none-eabi-gcc"

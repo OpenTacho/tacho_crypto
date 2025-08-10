@@ -1,0 +1,11 @@
+[package]
+name = "tacho_cert_common"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+eyre = { workspace = true }
+chrono = { workspace = true }
+iso9796_rsa = { workspace = true }
+strum = { workspace = true }
+enum-kinds = { workspace = true }
